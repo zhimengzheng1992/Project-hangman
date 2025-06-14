@@ -1,0 +1,214 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: top center;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#head-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: rgba(215, 215, 215, 0.5);
+  margin: 1rem auto;
+  padding: 0.5rem;
+  color: rgba(5, 2, 40, 0.7);
+  font-size: 2.5vw;
+  font-weight: 700;
+  border-radius: 2rem;
+}
+
+#pic {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+  height: 33vh;
+  overflow: hidden;
+}
+#pic img {
+  height: 100%;
+  width: auto;
+  margin-left: 33vh;
+  transform: scaleX(-1);
+}
+
+.main {
+  width: 80%;
+  background-color: rgba(215, 215, 215, 0.7);
+  margin: auto;
+  border-radius: 4rem;
+  overflow: hidden;
+}
+.main .guess .correct-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(21, 1, 77);
+  border: none;
+  width: 3rem;
+  height: 3rem;
+}
+
+.hint-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: brown;
+  font-weight: 700;
+  margin: 0;
+}
+
+.letter-area, .letter-area .hide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5vw;
+  font-weight: 700;
+}
+.letter-area div, .letter-area .hide div {
+  padding: 0.5rem;
+}
+
+.underline-box {
+  border-bottom: 2px solid black;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 0.2rem;
+}
+
+.message {
+  margin: 0 auto 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4rem;
+  background-color: brown;
+  width: 50%;
+  height: 5vh;
+  color: white;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  width: 80%;
+  margin: 1rem auto;
+  gap: 0.5rem;
+}
+.keyboard div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: rgb(21, 1, 77);
+  color: white;
+  font-weight: 700;
+  font-size: larger;
+  cursor: pointer;
+}
+.keyboard div.clicked {
+  background-color: rgb(117, 101, 161);
+  color: rgb(215, 215, 215);
+}
+.keyboard div.over {
+  background-color: rgb(175, 162, 210);
+  color: rgb(215, 215, 215);
+}
+
+.information {
+  width: 80%;
+  margin: 0 auto;
+}
+.information p {
+  padding: 1rem;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#overlay button.again {
+  background-color: rgb(0, 70, 131);
+  color: aliceblue;
+  margin-top: -6rem;
+  font-size: 3vh;
+  font-weight: 700;
+  border-radius: 2rem;
+  padding: 1rem;
+}
+
+.lost,
+.win {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px black;
+  width: 50%;
+  margin: 0 auto;
+  opacity: 0;
+  display: flex;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  border: 6px solid brown;
+}
+.lost img,
+.win img {
+  width: 35%;
+}
+.lost p,
+.win p {
+  margin-top: -10px;
+  font-size: 3vh;
+  color: rgb(80, 103, 123);
+  background-color: rgba(238, 236, 236, 0.8);
+  border-radius: 2rem;
+  padding: 1rem;
+  font-weight: 700;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10vh);
+  }
+}
+.lost img {
+  margin-bottom: -100px;
+  animation: floatUp 3s ease-out forwards;
+}
+
+.win img {
+  margin-bottom: 30px;
+}

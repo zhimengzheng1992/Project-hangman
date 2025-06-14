@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./scripts/script.js" defer></script>
+</head>
+
+<body>
+    <div id="head-line">COMP 2132 'Hangman'</div>
+    <div id="pic">
+        <img src="./images/0.png" alt="">
+    </div>
+    <div class="main">
+        <div class="guess">
+            <div class="letter-area"></div>
+            <div class="hint-area"></div>
+        </div>
+        <div class="message">
+            Incorrect guesses: 0/7
+        </div>
+        <div class="keyboard">
+
+        </div>
+        <div class="information">
+            <p>Guess a letter from the mystery word... you have a limited number of chances to guess the entire word.
+                Unfortunately, Spongebob will suffer the consequences for each wrong guess.</p>
+        </div>
+        <div id="overlay">
+            <div class="lost">
+                <img src="./images/8.png" alt="">
+                <p>You lost.</p>
+                <p id="lost-message"></p>
+            </div>
+            <div class="win">
+                <img src="./images/win-images/1.png" alt="">
+                <p>You win!</p>
+                <p id="win-message"></p>
+            </div>
+            <button class="again">Play Again</button>
+        </div>
+    </div>
+</body>
+
+</html>

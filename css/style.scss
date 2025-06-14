@@ -1,0 +1,224 @@
+@import "variables";
+
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    font-family: $font-main;
+}
+
+body {
+    background-image: url($background-img);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: top center;
+    width: 100%;
+    font-family: $font-main;
+}
+
+#head-line {
+    @include center-flex;
+    width: 50%;
+    background-color: rgba(215, 215, 215, 0.5);
+    margin: $spacing-medium auto;
+    padding: $spacing-small;
+    color: rgba(5, 2, 40, 0.7);
+    font-size: $font-size-large;
+    font-weight: 700;
+    border-radius: 2rem;
+}
+
+#pic {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    width: 100%;
+    height: 33vh;
+    overflow: hidden;
+
+    img {
+        height: 100%;
+        width: auto;
+        margin-left: 33vh;
+        transform: scaleX(-1);
+    }
+}
+
+.main {
+    width: 80%;
+    background-color: $background-light;
+    margin: auto;
+    border-radius: $border-radius-strong;
+    overflow: hidden;
+
+    .guess {
+        .correct-box {
+            @include center-flex;
+            color: $primary-color;
+            border: none;
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+}
+
+.hint-area {
+    @include center-flex;
+    color: $correct-color;
+    font-weight: 700;
+    margin: 0;
+}
+
+.letter-area {
+    @include center-flex;
+    font-size: $font-size-large;
+    font-weight: 700;
+
+    .hide {
+        @extend .letter-area;
+    }
+
+    div {
+        padding: $spacing-small;
+    }
+}
+
+.underline-box {
+    border-bottom: 2px solid black;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 0.2rem;
+}
+
+.message {
+    margin: 0 auto $spacing-medium auto;
+    @include center-flex;
+    border-radius: $border-radius-strong;
+    background-color: $correct-color;
+    width: 50%;
+    height: 5vh;
+    color: white;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    width: 80%;
+    margin: $spacing-medium auto;
+    gap: $spacing-small;
+
+    div {
+        @include center-flex;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border: 1px solid black;
+        border-radius: $border-radius-soft;
+        background-color: $primary-color;
+        color: white;
+        font-weight: 700;
+        font-size: larger;
+        cursor: pointer;
+
+        &.clicked {
+            background-color: $accent-color;
+            color: rgba(215, 215, 215);
+        }
+
+        &.over {
+            background-color: $hover-color;
+            color: rgba(215, 215, 215);
+        }
+    }
+}
+
+.information {
+    width: 80%;
+    margin: 0 auto;
+
+    p {
+        padding: $spacing-medium;
+    }
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $overlay-bg;
+    display: flex;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+    button.again {
+        background-color: rgb(0, 70, 131);
+        color: aliceblue;
+        margin-top: -6rem;
+        font-size: $font-size-medium;
+        font-weight: 700;
+        border-radius: 2rem;
+        padding: $spacing-medium;
+    }
+}
+
+.lost,
+.win {
+    background-image: url($background-img);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    border-radius: $border-radius-soft;
+    box-shadow: 0 0 10px black;
+    width: 50%;
+    margin: 0 auto;
+    opacity: 0;
+    display: flex;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    flex-direction: column;
+    @include center-flex;
+    padding: $spacing-large;
+    border: 6px solid $correct-color;
+
+    img {
+        width: 35%;
+    }
+
+    p {
+        margin-top: -10px;
+        font-size: $font-size-medium;
+        color: rgb(80, 103, 123);
+        background-color: rgba(238, 236, 236, 0.8);
+        border-radius: 2rem;
+        padding: $spacing-medium;
+        font-weight: 700;
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10vh);
+    }
+}
+
+.lost img {
+    margin-bottom: -100px;
+    animation: floatUp 3s ease-out forwards;
+}
+
+.win img {
+    margin-bottom: 30px;
+}
