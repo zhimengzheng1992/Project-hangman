@@ -26,7 +26,7 @@ const hangmanGame = {
         document.querySelector(".hint-area").innerHTML = "";
         document.querySelector(".message").innerHTML = "Incorrect guesses: 0/7";
         document.querySelector("#lost-message").textContent = "";
-        document.querySelector("#pic img").src = "../images/0.png";
+        document.querySelector("#pic img").src = "./images/0.png";
 
 
         // // Reset overlay and result display
@@ -54,7 +54,6 @@ const hangmanGame = {
             clearTimeout(winTimeout);
             winTimeout = null;
         }
-
     }
 };
 
@@ -62,7 +61,7 @@ function startGame() {
 
     hangmanGame.reset();
 
-    fetch('../json/baby_word_list.json')
+    fetch('./json/baby_word_list.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -171,7 +170,7 @@ function onLetterClick(event) {
 
     const pic = document.querySelector("#pic img")
     if (hangmanGame.wrongGuessCount !== 0) {
-        pic.src = `../images/${hangmanGame.wrongGuessCount}.png`
+        pic.src = `./images/${hangmanGame.wrongGuessCount}.png`
     }
 }
 
