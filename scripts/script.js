@@ -75,7 +75,6 @@ function startGame() {
 }
 
 
-
 function setupNewRound(data) {
 
     const randomIndex = Math.floor(Math.random() * data.length);
@@ -89,7 +88,7 @@ function setupNewRound(data) {
     for (let i = 0; i < hangmanGame.letters.length; i++) {
         letterArea.innerHTML += `<div class="underline-box"></div>`
     }
-    hintArea.innerHTML = `<p>Hint: ${hangmanGame.hint} - ${hangmanGame.word} </p>`
+    hintArea.innerHTML = `<p>Hint: ${hangmanGame.hint} </p>`
 
 
     const keys = document.querySelectorAll(".keyboard div")
